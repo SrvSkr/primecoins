@@ -17,10 +17,10 @@
 	            </span>
 	        </li>
 	        <li class="red">
-	            <span>
+	            <a href="sc-send">
 	                <i class="font-icon glyphicon glyphicon-send"></i>
 	                <span class="lbl">Send SC</span>
-	            </span>
+	            </a>
 	        </li>
 	        <li class="purple">
 	            <span>

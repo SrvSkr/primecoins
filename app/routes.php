@@ -21,5 +21,12 @@ Route::get('/signIn', function()
 	return View::make('sign-in');
 });
 
+Route::get('/sc-send', function()
+{
+	return View::make('sc-send');
+});
+
+Route::post('/login', array('uses' => 'HomeController@doLogin'));
+
 
 Route::resource('user', 'UserController');
