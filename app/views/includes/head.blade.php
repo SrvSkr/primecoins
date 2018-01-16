@@ -23,4 +23,6 @@
     <link rel="stylesheet" href="{{ URL::asset('css/lib/font-awesome/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/lib/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/lib/datatables-net/datatables.min.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/separate/vendor/datatables-net.min.css') }}">
 </head>

@@ -5,14 +5,14 @@ class RegistrationController extends \BaseController {
     public function store()
     {
         $rules = [
-            'username' => 'required|min:6|unique:users',
             'email' => 'required|email|unique:users',
+            'contact_no' => 'required|digits:10|unique:users',
             'password' => 'required|confirmed|min:6'
         ];
 
         $input = Input::only(
-            'username',
             'email',
+            'contact_no',
             'password',
             'password_confirmation'
         );
@@ -25,24 +25,28 @@ class RegistrationController extends \BaseController {
         }
 
         $confirmation_code = str_random(30);
-
-        User::create([
-            'username' => Input::get('username'),
+        $wallet_id = Hash::make(str_random(30));
+        $user = User::create([
+            'contact_no' => Input::get('contact_no'),
             'email' => Input::get('email'),
             'password' => Hash::make(Input::get('password')),
-            'confirmation_code' => $confirmation_code
+            'confirmation_code' => $confirmation_code,
+            'wallet_id' => $wallet_id
         ]);
 
-        Mail::send('email.verify', $confirmation_code, function($message) {
-            $message->to(Input::get('email'), Input::get('username'))
+
+      Mail::send('emails.verify', array('confirmation_code'=>$confirmation_code),function($message) {
+            $message->to(Input::get('email'),'')
                 ->subject('Verify your email address');
         });
 
-        Flash::message('Thanks for signing up! Please check your email.');
 
-        return Redirect::home();
+        $msg = 'Thanks for signing up! Please check your email.';
+        return Redirect::to('/register')->with('nick', $msg);
+
+
     }
-}
+
 
 
     public function confirm($confirmation_code)
@@ -52,7 +56,7 @@ class RegistrationController extends \BaseController {
             throw new InvalidConfirmationCodeException;
         }
 
-        $user = User::whereConfirmationCode($confirmation_code)->first();
+        $user = User::where('confirmation_code', '=', $confirmation_code)->first();
 
         if ( ! $user)
         {
@@ -63,8 +67,9 @@ class RegistrationController extends \BaseController {
         $user->confirmation_code = null;
         $user->save();
 
-        Flash::message('You have successfully verified your account.');
+        $msg = 'Thanks for signing up! Please check your email.';
+        return Redirect::to('/login')->with('vick', $msg);
 
-        return Redirect::route('login_path');
+
     }
 }

@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration {
 		    $table->string('wallet_id')->default('');
 		    $table->decimal('wallet_amount')->default(0);
 		    $table->string('remember_token')->default('');
+		    $table->boolean('confirmed')->default(0);
 		    $table->string('confirmation_code')->nullable();
 		    $table->date('created_at');
 		    $table->date('updated_at');

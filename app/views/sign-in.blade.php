@@ -40,11 +40,18 @@
                             <h6 style="color:red;">{{ Session::get('nick') }}</h6>
                         </div>
                     @endif
+                    @if(Session::has('vick'))
+                        <div class="alert-box success">
+                            <h6 style="color:green;">{{ Session::get('vick') }}</h6>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <input type="text" class="form-control" name="email" placeholder="E-Mail or Phone"/>
+                        <span style="color:red;"><?php echo $errors->first('email'); ?></span>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" name="password" placeholder="Password"/>
+                        <span style="color:red;"><?php echo $errors->first('password'); ?></span>
                     </div>
                     <!-- <div class="form-group">
                         <div class="checkbox float-left">
@@ -56,7 +63,7 @@
                         </div>
                     </div> -->
                     <button type="submit" class="btn btn-rounded">Sign in</button>
-                    <p class="sign-note">New to our website? <a href="sign-up.html">Sign up</a></p>
+                    <p class="sign-note">New to our website? <a href="{{ URL::to('register') }}">Sign up</a></p>
                     <!--<button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
                     </button>-->

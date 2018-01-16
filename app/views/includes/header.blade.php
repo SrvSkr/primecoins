@@ -2,14 +2,14 @@
 	    <div class="container-fluid">
 	
 	        <a href="{{ URL::to('dashboard') }}" class="site-logo">
-	        <strong><font size="5" color="purple">PrimeCoin Wallet</font></strong>
-	            <!-- <img class="hidden-md-down" src="img/logo-2.png" alt=""> -->
-	            <img class="hidden-lg-up" src="img/logo-2-mob.png" alt="">
+	        <strong><img src="img/pclogo.png" style="width: :100%"></strong>
+	            <!-- <img class="hidden-md-down" src="img/logo-2.png" alt=""> 
+	            <img class="hidden-lg-up" src="img/logo-2-mob.png" alt=""> -->
 	        </a>
 	
-	        <button id="show-hide-sidebar-toggle" class="show-hide-sidebar">
+	        <!-- <button id="show-hide-sidebar-toggle" class="show-hide-sidebar">
 	            <span>toggle menu</span>
-	        </button>
+	        </button> -->
 	
 	        <button class="hamburger hamburger--htla">
 	            <span>toggle menu</span>
@@ -23,9 +23,9 @@
 	                            <img src="img/avatar-sign.png" alt="">
 	                        </button>
 	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
-	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-user"></span>Profile</a>
-	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-cog"></span>Settings</a>
-	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Help</a>
+<!-- 	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-user"></span>Profile</a> -->
+	                            <a class="dropdown-item" href="{{ URL::to('settings') }}"><span class="font-icon glyphicon glyphicon-cog"></span>Settings</a>
+	                            <!-- <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Help</a> -->
 	                            <div class="dropdown-divider"></div>
 	                            <a class="dropdown-item" href="{{ URL::to('logout') }}"><span class="font-icon glyphicon glyphicon-log-out"></span>Logout</a>
 	                        </div>

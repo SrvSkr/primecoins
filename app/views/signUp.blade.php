@@ -28,20 +28,31 @@
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
-                <form class="sign-box">
+                <form class="sign-box" action="postRegister" method="post">
                     <div class="sign-avatar no-photo">&plus;</div>
                     <header class="sign-title">Sign Up</header>
+                     @if(Session::has('nick'))
+                        <div class="alert-box success">
+                            <h6 style="color:green;">{{ Session::get('nick') }}</h6>
+                        </div>
+                    @endif
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="E-Mail"/>
+                        <input type="email" class="form-control" name="email" placeholder="E-Mail"/>
+                        <span style="color:red;"><?php echo $errors->first('email'); ?></span>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password"/>
+                        <input type="text" class="form-control" name="contact_no" placeholder="Mobile No"/>
+                        <span style="color:red;"><?php echo $errors->first('contact_no'); ?></span>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Repeat password"/>
+                        <input type="password" class="form-control" name="password" placeholder="Password"/>
+                        <span style="color:red;"><?php echo $errors->first('password'); ?></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password_confirmation" placeholder="Repeat password"/>
                     </div>
                     <button type="submit" class="btn btn-rounded btn-success sign-up">Sign up</button>
-                    <p class="sign-note">Already have an account? <a href="sign-in.html">Sign in</a></p>
+                    <p class="sign-note">Already have an account? <a href="{{ URL::to('login') }}">Sign in</a></p>
                     <!--<button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
                     </button>-->

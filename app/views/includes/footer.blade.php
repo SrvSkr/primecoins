@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="{{ URL::asset('js/lib/jqueryui/jquery-ui.min.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/lib/lobipanel/lobipanel.min.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/lib/match-height/jquery.matchHeight.min.js') }}"></script>
+	<script src="{{ URL::asset('js/lib/datatables-net/datatables.min.js') }}"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script>
 		$(document).ready(function() {

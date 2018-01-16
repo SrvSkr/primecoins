@@ -8,16 +8,16 @@
 	            </div>
 	    <ul class="side-menu-list" style="padding-top: 30% !important;">
 	        <li class="grey">
-	            <span>
+	            <a href="{{ URL::to('dashboard') }}">
 	                <i class="font-icon font-icon-dashboard"></i>
-	                <span class="lbl">Wallet Menu</span>
-	            </span>
+	                <span class="lbl">Dashboard</span>
+	            </a>
 	        </li>
 	        <li class="brown">
-	            <span>
+	            <a href="{{ URL::to('transactions') }}">
 	                <i class="fa fa-exchange"></i>
 	                <span class="lbl">Transactions</span>
-	            </span>
+	            </a>
 	        </li>
 	        <li class="red">
 	            <a href="{{ URL::to('pc-send') }}">
@@ -31,20 +31,20 @@
 	                <span class="lbl">Receive PC</span>
 	            </a>
 	        </li>
-	        <li class="orange-red">
+	        <!-- <li class="orange-red">
 	            <span>
 	                <i class="fa fa-shield"></i>
 	                <span class="lbl">Security</span>
 	            </span>
-	        </li>
+	        </li> -->
 	        <li class="gold">
-	            <span>
+	            <a href="{{ URL::to('settings') }}">
 	                <i class="fa fa-cogs"></i>
-	                <span class="lbl">Settings</span>
-	            </span>
+	                <span class="lbl">Security & Settings</span>
+	            </a>
 	        </li>
 	        <li class="blue-dirty">
-	            <a href="tables.html">
+	            <a href="#">
 	                <i class="font-icon font-icon-help"></i>
 	                <span class="lbl">Support</span>
 	            </a>

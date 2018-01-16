@@ -31,6 +31,16 @@ Route::get('/pc-receive', function()
 	return View::make('pc-receive');
 });
 
+Route::get('/transactions', function()
+{
+	return View::make('transactions');
+});
+
+Route::get('/settings', function()
+{
+	return View::make('settings');
+});
+
 Route::resource('user', 'UserController');
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
@@ -45,13 +55,17 @@ Route::get('/login', function()
 {
 	return View::make('sign-in');
 });
+Route::get('/register', function()
+{
+	return View::make('signUp');
+});
 
 Route::get('register/verify/{confirmationCode}', [
     'as' => 'confirmation_path',
     'uses' => 'RegistrationController@confirm'
 ]);
 
-Route::post('/postRegister', array('uses' => 'RegistrationController@doLogin'));
+Route::post('/postRegister', array('uses' => 'RegistrationController@store'));
 
 Route::post('/postLogin', array('uses' => 'HomeController@doLogin'));
 

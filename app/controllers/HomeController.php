@@ -42,7 +42,7 @@ class HomeController extends BaseController {
 			// create our user data for the authentication
 			$userdata = array(
 				'email' 	=> Input::get('email'),
-				'password' 	=> Input::get('password')
+				'password' 	=> Input::get('password'),
 			);
 			// echo '<pre>';
 			// print_r($userdata);
@@ -53,7 +53,19 @@ class HomeController extends BaseController {
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
 				// for now we'll just echo success (even though echoing in a controller is bad)
+				$userdata = array(
+				'email' 	=> Input::get('email'),
+				'password' 	=> Input::get('password'),
+				'confirmed' => 1
+				);
+				if (Auth::attempt($userdata,true)) {
 				return Redirect::intended('/dashboard');
+			}
+			else
+			{
+				$msg = 'The account email address is not yet verified.';
+				return Redirect::to('/')->with('nick', $msg);
+			}
 			} else {
 				
 				$msg = 'Username or Password is incorrect.';
