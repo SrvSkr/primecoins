@@ -25,16 +25,18 @@ class UserTableSeeder extends Seeder {
 
         User::create(array(
         	'email' => 'admin@email.com',
-        	'password' => md5('12345'),
+        	'password' => Hash::make('12345'),
         	'contact_no' => 1234567890,
-            'wallet_id' => 'dsgsdgdfgdsfg12341234',
+            'wallet_id' => '$2y$10$mhmUsrN8auTrijfX3D9lDuuZcAnVQLiWM4WLX5zZxkUWbytadMstO',
+            'wallet_amount' => 100.00,
         	'created_at' => Carbon\Carbon::now()
         	));
          User::create(array(
         	'email' => 'user@email.com',
-        	'password' => md5('12345'),
+        	'password' => Hash::make('12345'),
         	'contact_no' => 1234567890,
-            'wallet_id' => 'dsgsdgdfgdsfg12341234345',
+            'wallet_id' => '$2y$10$mhmUsrN8auTrijfX3D9lDuuZcAnVQLiWM4WLX5zZxkUWbytadMstO12',
+            'wallet_amount' => 100.00,
         	'created_at' => Carbon\Carbon::now()
         	));
     }

@@ -1,8 +1,8 @@
 	<header class="site-header">
 	    <div class="container-fluid">
 	
-	        <a href="#" class="site-logo">
-	        <strong><font size="5" color="purple">SiaCoin Wallet</font></strong>
+	        <a href="{{ URL::to('dashboard') }}" class="site-logo">
+	        <strong><font size="5" color="purple">PrimeCoin Wallet</font></strong>
 	            <!-- <img class="hidden-md-down" src="img/logo-2.png" alt=""> -->
 	            <img class="hidden-lg-up" src="img/logo-2-mob.png" alt="">
 	        </a>
@@ -16,18 +16,18 @@
 	        </button>
 	        <div class="site-header-content">
 	            <div class="site-header-content-in">
-	                <div class="site-header-shown">
+	                <div class="site-header-shown" style="    position: absolute;right: 25px;top: 25px;">
 	                    
 	                    <div class="dropdown user-menu">
 	                        <button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                            <img src="img/avatar-2-64.png" alt="">
+	                            <img src="img/avatar-sign.png" alt="">
 	                        </button>
 	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
 	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-user"></span>Profile</a>
 	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-cog"></span>Settings</a>
 	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Help</a>
 	                            <div class="dropdown-divider"></div>
-	                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-log-out"></span>Logout</a>
+	                            <a class="dropdown-item" href="{{ URL::to('logout') }}"><span class="font-icon glyphicon glyphicon-log-out"></span>Logout</a>
 	                        </div>
 	                    </div>
 	

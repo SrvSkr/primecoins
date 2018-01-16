@@ -10,23 +10,50 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::group(array('before' => 'auth'), function()
+{
+Route::get('/dashboard', function()
+{
+	return View::make('index');
+	// $password = Hash::make(12345);
+	// echo $password;
+	// exit;
+});
+
+
+
+Route::get('/pc-send', function()
+{
+	return View::make('pc-send');
+});
+Route::get('/pc-receive', function()
+{
+	return View::make('pc-receive');
+});
+
+Route::resource('user', 'UserController');
+Route::get('logout', array('uses' => 'HomeController@doLogout'));
+
+Route::post('/postPc', array('uses' => 'HomeController@postPc'));
+});
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return View::make('sign-in');
 });
-
-Route::get('/signIn', function()
+Route::get('/login', function()
 {
 	return View::make('sign-in');
 });
 
-Route::get('/sc-send', function()
-{
-	return View::make('sc-send');
-});
+Route::get('register/verify/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'RegistrationController@confirm'
+]);
 
-Route::post('/login', array('uses' => 'HomeController@doLogin'));
+Route::post('/postRegister', array('uses' => 'RegistrationController@doLogin'));
+
+Route::post('/postLogin', array('uses' => 'HomeController@doLogin'));
 
 
-Route::resource('user', 'UserController');
+

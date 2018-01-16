@@ -14,10 +14,19 @@ $user = User::find($id);
 ?>
 	<div class="page-content">
 	    <div class="container-fluid">
-	     <div class="row">
-	     <font size="5" color="purple">Your Primecoin</font> Wallet Online
-	     	<br><br><br>
-	     </div>
+	    <header class="section-header">
+				<div class="tbl">
+					<div class="tbl-row">
+						<div class="tbl-cell">
+							<font size="5" color="purple">Your Primecoin</font> Wallet Online
+							<ol class="breadcrumb breadcrumb-simple">
+								<li><a href="{{ URL::to('dashboard') }}">Dashboard</a></li>
+								<li class="active">Send PC</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</header>
 	        <div class="row">
 	            
 	            <div class="col-xl-12">
@@ -26,7 +35,7 @@ $user = User::find($id);
 	                        <article class="statistic-box red">
 	                            <div>
 	                                <div class="number">{{$user->wallet_amount}} PC</div>
-	                                <div class="caption"><div>Total Balance in PC</div></div>
+	                                <div class="caption"><div>Total Balance In PC</div></div>
 	                                <div class="percent">
 	                                    <!-- <div class="arrow up"></div>
 	                                    <p>15%</p> -->
@@ -51,9 +60,53 @@ $user = User::find($id);
 						  <div class="panel-leftheading" style="width:5px !important;">
 						      <h3 class="panel-lefttitle"></h3>
 						  </div>
-						  <div class="panel-rightbody">
-						      <p>Personal address to receive Primecoins.</p>
-						      <p><strong>{{$user->wallet_id}}</strong></p>
+						  <div class="panel" style="text-align: center;">
+						  <div  style="display: inline-block;margin: ">
+			       <form class="sign-box" action="postPc" method="post">
+                    <div class="sign-avatar">
+                        <i class="fa fa-paper-plane fa-5x"></i>
+                    </div>
+                    <header class="sign-title">Send PC</header>
+                    <br><br>
+                    @if(Session::has('failure'))
+                        <div class="alert-box success col-sm-8 offset-sm-2">
+                            <h6 style="color:red;">{{ Session::get('failure') }}</h6>
+                        </div>
+                    @endif
+                     @if(Session::has('success'))
+                        <div class="alert-box success col-sm-8 offset-sm-2">
+                            <h6 style="color:green;">{{ Session::get('success') }}</h6>
+                        </div>
+                    @endif
+                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">
+                        <input type="text" class="form-control" name="send_to" placeholder="Send to?" required/>
+                        </div>
+                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">    
+                        <input type="number" class="form-control" name="amount" placeholder="Amount" required/>
+                    </div>
+                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">
+                        <textarea type="password" class="form-control" name="description" placeholder="Description"></textarea>
+                    </div>
+                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">
+                        <input type="submit" class="btn btn-primary" name="Send SC" value="Send PC"/>
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <div class="checkbox float-left">
+                            <input type="checkbox" id="signed-in"/>
+                            <label for="signed-in">Keep me signed in</label>
+                        </div>
+                        <div class="float-right reset">
+                            <a href="reset-password.html">Reset Password</a>
+                        </div>
+                    </div> -->
+                    <!-- <button type="submit" class="btn btn-rounded">Sign in</button>
+                    <p class="sign-note">New to our website? <a href="sign-up.html">Sign up</a></p> -->
+                    <!--<button type="button" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>-->
+                </form>
+                </div>
 						      
 						  </div>
 						    <div class="clearfix">
@@ -61,28 +114,6 @@ $user = User::find($id);
 							</div>
 	                    </div>
 	                    <div style="height:50px;" class="col-sm-12"></div>
-	                    <div class="col-sm-12">
-	                    <div class="panel panel-danger" style=" box-shadow: 2px 4px #888888;">
-						  <div class="panel-leftheading green-success" style="width:5px !important;">
-						      <h3 class="panel-lefttitle"></h3>
-						  </div>
-						  <div class="panel-rightbody">
-						     <div class="col-sm-2">
-						     
-						     <span class="fa-stack fa-lg">
-							  <i class="fa fa-television fa-2x" aria-hidden="true" style="position:absolute !important;"></i>
-							  <i class="fa fa-mobile fa-stack-2x" aria-hidden="true" style="padding-left: 39px;padding-top: 11px;"></i>
-							</span>
-						     </div>
-						     <div class="col-sm-10">
-						     Welcome! Thankyou for joining the network, bandaging over 991k+ users of Primecoin wallets.
-						     </div>
-						      
-						  </div>
-						    <div class="clearfix">
-						    </div>
-							</div>
-	                    </div>
 	                    <!-- <div class="col-sm-6">
 	                        <article class="statistic-box yellow">
 	                            <div>

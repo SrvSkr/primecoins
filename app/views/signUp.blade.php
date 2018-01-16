@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>SignIn - Prime Coins</title>
+	<title>StartUI - Premium Bootstrap 4 Admin Dashboard Template</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -28,35 +28,20 @@
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
-
-                <form class="sign-box" action="postLogin" method="post">
-                    <div class="sign-avatar">
-                        <img src="img/avatar-sign.png" alt="">
-                    </div>
-
-                    <header class="sign-title">Sign In</header>
-                    @if(Session::has('nick'))
-                        <div class="alert-box success">
-                            <h6 style="color:red;">{{ Session::get('nick') }}</h6>
-                        </div>
-                    @endif
+                <form class="sign-box">
+                    <div class="sign-avatar no-photo">&plus;</div>
+                    <header class="sign-title">Sign Up</header>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="email" placeholder="E-Mail or Phone"/>
+                        <input type="text" class="form-control" placeholder="E-Mail"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Password"/>
+                        <input type="password" class="form-control" placeholder="Password"/>
                     </div>
-                    <!-- <div class="form-group">
-                        <div class="checkbox float-left">
-                            <input type="checkbox" id="signed-in"/>
-                            <label for="signed-in">Keep me signed in</label>
-                        </div>
-                        <div class="float-right reset">
-                            <a href="reset-password.html">Reset Password</a>
-                        </div>
-                    </div> -->
-                    <button type="submit" class="btn btn-rounded">Sign in</button>
-                    <p class="sign-note">New to our website? <a href="sign-up.html">Sign up</a></p>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Repeat password"/>
+                    </div>
+                    <button type="submit" class="btn btn-rounded btn-success sign-up">Sign up</button>
+                    <p class="sign-note">Already have an account? <a href="sign-in.html">Sign in</a></p>
                     <!--<button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
                     </button>-->
@@ -64,7 +49,6 @@
             </div>
         </div>
     </div><!--.page-center-->
-
 
 <script src="js/lib/jquery/jquery.min.js"></script>
 <script src="js/lib/tether/tether.min.js"></script>

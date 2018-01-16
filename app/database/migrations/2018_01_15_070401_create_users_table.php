@@ -19,6 +19,9 @@ class CreateUsersTable extends Migration {
 		    $table->string('password')->default('');
 		    $table->bigInteger('contact_no')->default(0);
 		    $table->string('wallet_id')->default('');
+		    $table->decimal('wallet_amount')->default(0);
+		    $table->string('remember_token')->default('');
+		    $table->string('confirmation_code')->nullable();
 		    $table->date('created_at');
 		    $table->date('updated_at');
 		});

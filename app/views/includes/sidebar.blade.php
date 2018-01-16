@@ -1,7 +1,10 @@
 	<nav class="side-menu">
+	<?php
+	$email = Auth::user()->email;
+	?>
 	<div style="float:left;width:100%;padding-left: 5%;">
-	                <img src="img/avatar-2-64.png" style="height:20%;width:20%;" alt="">
-	                <span><strong>drunkrooster@yandex</strong></span>
+	                <img src="img/avatar-sign.png" style="height:20%;width:20%;" alt="">
+	                <span><strong>{{$email}}</strong></span>
 	            </div>
 	    <ul class="side-menu-list" style="padding-top: 30% !important;">
 	        <li class="grey">
@@ -17,16 +20,16 @@
 	            </span>
 	        </li>
 	        <li class="red">
-	            <a href="sc-send">
+	            <a href="{{ URL::to('pc-send') }}">
 	                <i class="font-icon glyphicon glyphicon-send"></i>
-	                <span class="lbl">Send SC</span>
+	                <span class="lbl">Send PC</span>
 	            </a>
 	        </li>
 	        <li class="purple">
-	            <span>
+	            <a href="{{ URL::to('pc-receive') }}">
 	                <i class="font-icon font-icon-comments"></i>
-	                <span class="lbl">Recieve SC</span>
-	            </span>
+	                <span class="lbl">Receive PC</span>
+	            </a>
 	        </li>
 	        <li class="orange-red">
 	            <span>
@@ -47,7 +50,7 @@
 	            </a>
 	        </li>
 	        <li class="magenta opened">
-	            <a href="scheduler.html">
+	            <a href="{{ URL::to('logout') }}">
 	                <i class="fa fa-sign-out"></i>
 	                <span class="lbl">Sign Out</span>
 	            </a>
