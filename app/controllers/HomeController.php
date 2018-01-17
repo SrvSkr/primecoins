@@ -131,4 +131,52 @@ class HomeController extends BaseController {
 
 	}
 
+	public function chPasswordPost()
+	{
+		$old = Input::get('old');
+		$new = Input::get('new');
+
+		$id= Auth::id();
+		$user= User::find($id);
+		$userdata = array(
+				'email' 	=> $user->email,
+				'password' 	=> $old,
+		);
+		if(Auth::attempt($userdata,true))
+		{
+
+			$user->password = Hash::make($new);
+			$user->update();
+			$result['success'] = 1;
+		}
+		else
+		{
+			$result['success'] = 0;
+		}
+		return $result;
+	}
+
+	public function chEmailPost()
+	{
+		$email = Input::get('NewEmail');
+		// echo $email;
+		// exit;
+		$id= Auth::id();
+		$user= User::find($id);
+		$confirmation_code = str_random(30);
+		$user->email = $email;
+		$user->confirmation_code = $confirmation_code;
+		$user->confirmed = 0;
+		$user->update();
+		Mail::send('emails.verify', array('confirmation_code'=>$confirmation_code),function($message) {
+            $message->to(Input::get('NewEmail'),'')
+                ->subject('Verify your email address');
+        });
+
+
+        $msg = 'Your email has been changed! Please check your email.';
+        Auth::logout(); 
+        return Redirect::to('/login')->with('vick', $msg);
+	}
+
 }

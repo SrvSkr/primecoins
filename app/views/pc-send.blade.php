@@ -61,12 +61,12 @@ $user = User::find($id);
 						      <h3 class="panel-lefttitle"></h3>
 						  </div>
 						  <div class="panel" style="text-align: center;">
-						  <div  style="display: inline-block;margin: ">
+						  <div  style="width:90%;padding-left: 2%;">
 			       <form class="sign-box" action="postPc" method="post">
-                    <div class="sign-avatar">
+                    <div class="sign-avatar" style="color: #5675a7 !important;">
                         <i class="fa fa-paper-plane fa-5x"></i>
                     </div>
-                    <header class="sign-title">Send PC</header>
+                    <header class="sign-title"><h3 style="color: #5675a7 !important;"><strong>Send PC</strong></h3></header>
                     <br><br>
                     @if(Session::has('failure'))
                         <div class="alert-box success col-sm-8 offset-sm-2">
@@ -78,16 +78,34 @@ $user = User::find($id);
                             <h6 style="color:green;">{{ Session::get('success') }}</h6>
                         </div>
                     @endif
-                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">
+                    <div class="form-group row">
+						<label class="col-sm-2 form-control-label">Send to?</label>
+						<div class="col-sm-10">
+							<p class="form-control-static"><input type="text" class="form-control" name="send_to" placeholder="Send to?" required></p>
+						</div>
+					</div>
+					 <div class="form-group row">
+						<label class="col-sm-2 form-control-label">Amount</label>
+						<div class="col-sm-10">
+							<p class="form-control-static"><input type="text" class="form-control" name="amount" placeholder="Amount" required></p>
+						</div>
+					</div>
+					 <div class="form-group row">
+						<label class="col-sm-2 form-control-label">Description</label>
+						<div class="col-sm-10">
+							<p class="form-control-static"><textarea class="form-control" name="description" placeholder="Description"></textarea></p>
+						</div>
+					</div>
+                   <!--  <div class="col-sm-10 offset-sm-1" style="padding-bottom: 20px;">
                         <input type="text" class="form-control" name="send_to" placeholder="Send to?" required/>
                         </div>
-                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">    
+                    <div class="col-sm-10 offset-sm-1" style="padding-bottom: 20px;">    
                         <input type="number" class="form-control" name="amount" placeholder="Amount" required/>
                     </div>
-                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">
+                    <div class="col-sm-10 offset-sm-1" style="padding-bottom: 20px;">
                         <textarea type="password" class="form-control" name="description" placeholder="Description"></textarea>
-                    </div>
-                    <div class="col-sm-8 offset-sm-2" style="padding-bottom: 20px;">
+                    </div> -->
+                    <div class="col-sm-11 offset-sm-1" style="padding-bottom: 20px;">
                         <input type="submit" class="btn btn-primary" name="Send SC" value="Send PC"/>
                     </div>
 

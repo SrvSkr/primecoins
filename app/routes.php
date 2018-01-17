@@ -45,6 +45,11 @@ Route::resource('user', 'UserController');
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 Route::post('/postPc', array('uses' => 'HomeController@postPc'));
+
+Route::post('/chPasswordPost', array('uses' => 'HomeController@chPasswordPost'));
+
+Route::post('/chEmailPost', array('uses' => 'HomeController@chEmailPost'));
+
 });
 
 Route::get('/', function()

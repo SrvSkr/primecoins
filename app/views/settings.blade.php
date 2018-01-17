@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 @include('includes.head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<style>
+.jconfirm-box-container {
+  float: right;
+
+  position: relative;
+  left: -30%; /* or right 50% */
+  text-align: left;
+}
+.btn-default{
+	background-color: black !important;
+}
+</style>
 <body class="with-side-menu control-panel control-panel-compact">
 
 @include('includes.header')
@@ -96,22 +109,22 @@ $user = User::find($id);
 				</p>
 
 
-				<form>
+				<form id="chPasswordForm" method="post" action="chPasswordPost">
 					<div class="form-group row">
 						<label class="col-sm-2 form-control-label">Old Password</label>
 						<div class="col-sm-10">
-							<p class="form-control-static"><input type="text" class="form-control" id="inputPassword"></p>
+							<p class="form-control-static"><input type="text" class="form-control" id="oldPassword"></p>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 form-control-label">New Password</label>
 						<div class="col-sm-10">
-							<p class="form-control-static"><input type="text" class="form-control" id="inputPassword"></p>
+							<p class="form-control-static"><input type="text" class="form-control" id="newPassword"></p>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-3" style="text-align:center;">
-							<p class="form-control-static"><input type="submit" class="form-control btn btn-primary" id="inputPassword" value="Submit"></p>
+							<p class="form-control-static"><input type="submit" class="form-control btn btn-primary" id="chPasswordSubmit" value="Submit"></p>
 						</div>
 					</div>
 					
@@ -128,16 +141,16 @@ $user = User::find($id);
 				</p>
 
 
-				<form>
+				<form id="chEmailForm" method="post" action="chEmailPost">
 					<div class="form-group row">
 						<label class="col-sm-2 form-control-label">New Email Address?</label>
 						<div class="col-sm-10">
-							<p class="form-control-static"><input type="text" class="form-control" id="NewEmail"></p>
+							<p class="form-control-static"><input type="text" class="form-control" name="NewEmail" id="NewEmail"></p>
 						</div>
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-3" style="text-align:center;">
-							<p class="form-control-static"><input type="submit" class="form-control btn btn-primary" id="inputPassword" value="Submit"></p>
+							<p class="form-control-static"><input type="submit" class="form-control btn btn-primary" id="submitNewEmail" value="Submit"></p>
 						</div>
 					</div>
 					
@@ -181,5 +194,63 @@ $user = User::find($id);
 
 	
  @include('includes.footer')
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+ <script type="text/javascript">
+ // $('#chPasswordSubmit1').hide();submitNewEmail
+ 	$(document).on("click","#chPasswordSubmit",function(e) {
+ 		e.preventDefault();
+        $.confirm({
+		    title: 'Confirm!',
+		    content: 'Do you want to change the password?',
+		    draggable: true,
+		    buttons: {
+		        confirm: {
+		            btnClass: 'btn-blue',
+		            action: function(){
+		            	// $('#chPasswordForm').submit();
+		            	 $.post("chPasswordPost",{old: $('#oldPassword').val(),new: $('#newPassword').val()},function(res)
+		            	 {
+		            	 	if(res.success == 1)
+		            	 	{
+		            	 		$.alert('Password has been successfully changed.');
+		            	 		$('#oldPassword').val('');
+		            	 		$('#newPassword').val('');
+		            	 	}
+		            	 	else
+		            	 	{
+		            	 		$.alert('Old Password do not match.');
+		            	 	}
+					    });
+		            }
+		        },
+		        cancel: {
+		            btnClass: 'btn-red', // multiple classes.
+		
+		        },
+		    }
+		});
+    });
+     $(document).on("click","#submitNewEmail",function(e) {
+ 		e.preventDefault();
+        $.confirm({
+		    title: 'Confirm!',
+		    content: 'Do you want to change the email?',
+		    draggable: true,
+		    buttons: {
+		        confirm: {
+		            btnClass: 'btn-blue',
+		            action: function(){
+		            	$('#chEmailForm').submit();
+		            	
+		            }
+		        },
+		        cancel: {
+		            btnClass: 'btn-red', // multiple classes.
+		
+		        },
+		    }
+		});
+    });
+ </script>
 </body>
 </html>
