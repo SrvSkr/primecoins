@@ -20,8 +20,8 @@ Route::get('/check_users', function()
 
 Route::get('/del_user', function()
 {
-		$users= User::find(5);
-		$user1= User::find(6);
+		$users= User::find(7);
+		$user1= User::find(8);
 		$users->delete();
 		$user1->delete();
 
