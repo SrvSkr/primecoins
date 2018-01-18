@@ -22,7 +22,7 @@ Route::get('/del_user', function()
 {
 		$users= User::find(5);
 		$user1= User::find(6);
-		$user->delete();
+		$users->delete();
 		$user1->delete();
 
 });
