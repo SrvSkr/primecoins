@@ -1,6 +1,9 @@
 	<header class="site-header">
 	    <div class="container-fluid">
-	
+	<?php
+		$id = Auth::id();
+		$user = User::find($id);
+	?>
 	        <a href="{{ URL::to('dashboard') }}" class="site-logo">
 	        <strong><img src="img/pclogo.png" style="width: :100%"></strong>
 	            <!-- <img class="hidden-md-down" src="img/logo-2.png" alt=""> 
@@ -16,6 +19,9 @@
 	        </button>
 	        <div class="site-header-content">
 	            <div class="site-header-content-in">
+	            <div class="site-header-shown" style=" border-color: coral;border-style: solid; color:coral;   position: absolute;right: 120px;top: 25px;min-width:80px; text-align:center;">
+	            <strong>{{$user->wallet_amount}} PC </strong>
+	            </div>
 	                <div class="site-header-shown" style="    position: absolute;right: 25px;top: 25px;">
 	                    
 	                    <div class="dropdown user-menu">
