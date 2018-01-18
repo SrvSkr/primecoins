@@ -18,6 +18,15 @@ Route::get('/check_users', function()
 });
 
 
+Route::get('/del_user', function()
+{
+		$users= User::find(5);
+		$user1= User::find(6);
+		$user->delete();
+		$user1->delete();
+
+});
+
 
 Route::group(array('before' => 'auth'), function()
 {
