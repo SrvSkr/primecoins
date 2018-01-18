@@ -28,6 +28,7 @@ class UserTableSeeder extends Seeder {
         	'password' => Hash::make('12345'),
         	'contact_no' => 1234567890,
             'wallet_id' => '$2y$10$mhmUsrN8auTrijfX3D9lDuuZcAnVQLiWM4WLX5zZxkUWbytadMstO',
+            'confirmed' => 1,
             'wallet_amount' => 100.00,
         	'created_at' => Carbon\Carbon::now()
         	));
@@ -36,6 +37,7 @@ class UserTableSeeder extends Seeder {
         	'password' => Hash::make('12345'),
         	'contact_no' => 1234567890,
             'wallet_id' => '$2y$10$mhmUsrN8auTrijfX3D9lDuuZcAnVQLiWM4WLX5zZxkUWbytadMstO12',
+            'confirmed' => 1,
             'wallet_amount' => 100.00,
         	'created_at' => Carbon\Carbon::now()
         	));
