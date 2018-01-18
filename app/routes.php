@@ -10,6 +10,15 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/check_users', function()
+{
+		$users= User::all();
+		echo '<pre>';
+		print_r($users);
+});
+
+
+
 Route::group(array('before' => 'auth'), function()
 {
 Route::get('/dashboard', function()
