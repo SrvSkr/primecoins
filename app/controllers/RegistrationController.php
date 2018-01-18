@@ -53,14 +53,16 @@ class RegistrationController extends \BaseController {
     {
         if( ! $confirmation_code)
         {
-            throw new InvalidConfirmationCodeException;
+            //throw new InvalidConfirmationCodeException;
+             return Redirect::to('/login');
         }
 
         $user = User::where('confirmation_code', '=', $confirmation_code)->first();
 
         if ( ! $user)
         {
-            throw new InvalidConfirmationCodeException;
+            //throw new InvalidConfirmationCodeException;
+             return Redirect::to('/login');
         }
 
         $user->confirmed = 1;
