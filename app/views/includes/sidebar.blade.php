@@ -44,7 +44,7 @@
 	            </a>
 	        </li>
 	        <li class="blue-dirty">
-	            <a href="#">
+	            <a href="{{ URL::to('support') }}">
 	                <i class="font-icon font-icon-help"></i>
 	                <span class="lbl">Support</span>
 	            </a>

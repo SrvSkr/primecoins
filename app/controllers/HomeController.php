@@ -179,4 +179,18 @@ class HomeController extends BaseController {
         return Redirect::to('/login')->with('vick', $msg);
 	}
 
+	public function postSupport()
+	{
+		$name = Input::get('name');
+		$contact_no = Input::get('contact_no');
+		$subject = Input::get('subject');
+		$body = Input::get('body');
+		Mail::send('emails.support-mail', array('name'=>$name, 'contact_no' => $contact_no, 'body' => $body ),function($message) {
+            $message->to('iitb.riteshag@gmail.com','')
+                ->subject(Input::get('subject'));
+        });
+        $msg = 'We endevour to get back to you within 48 hours but it may be longer due to unprecedenated high volume.';
+        return Redirect::to('/support')->with('success', $msg);
+	}
+
 }

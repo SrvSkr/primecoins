@@ -59,10 +59,17 @@ Route::get('/settings', function()
 	return View::make('settings');
 });
 
+Route::get('/support', function()
+{
+	return View::make('support');
+});
+
 Route::resource('user', 'UserController');
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 Route::post('/postPc', array('uses' => 'HomeController@postPc'));
+
+Route::post('/postSupport', array('uses' => 'HomeController@postSupport'));
 
 Route::post('/chPasswordPost', array('uses' => 'HomeController@chPasswordPost'));
 
