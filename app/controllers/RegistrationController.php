@@ -69,7 +69,7 @@ class RegistrationController extends \BaseController {
         $user->confirmation_code = null;
         $user->save();
 
-        $msg = 'Thanks for signing up! Please check your email.';
+        $msg = 'Thanks for verifying your email! Please login to your account.';
         return Redirect::to('/login')->with('vick', $msg);
 
 
