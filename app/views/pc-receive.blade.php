@@ -63,7 +63,7 @@ $user = User::find($id);
 						  <div class="panel-rightbody">
 						      <p>Please share your wallet id to receive Primecoins.</p>
 						      <p><strong>{{$user->wallet_id}}</strong></p>
-						      
+						      <p style="text-align: left"><img src="img/qr.png" style="width:10%;height:10%;"></p>
 						  </div>
 						    <div class="clearfix">
 						    </div>
