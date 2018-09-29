@@ -1,0 +1,127 @@
+.row.jumbo {
+    
+    &#homepage {
+        background-image:url(images/bg_img3.jpg);
+        height:calc(110vh - 75px);
+        @media screen and (min-width:1200px) {
+            height:calc(110vh - 75px);
+        }
+        background-position:0px 0px;
+        justify-content: center;
+        position:relative;
+        @media screen and (max-width:767px) {
+            background-position:center top;
+            height:calc(135vh - 75px);
+        }
+    }
+    
+    &#my_account {
+        background-image:url(images/doodles.png);
+        background-repeat: repeat;
+        background-color:$lighterBlue;
+        background-size:auto;
+        height:150px;
+        
+   }
+    &#place_an_ad {
+        /*background-image:url(images/doodles.png);
+        background-repeat: repeat;
+        background-color:$lighterBlue;
+        background-size:auto;
+        height:150px;*/
+        height:0px;
+       }
+    &#applications {
+      /*  background-image:url(images/doodles.png);
+        background-repeat: repeat;
+        background-color:$lighterBlue;
+        background-size:auto;
+        height:150px;*/
+        height:0px;
+       }
+    &#register {
+        /*background-image:url(images/doodles.png);
+        background-repeat: repeat;
+        background-color:$lighterBlue;
+        background-size:auto;
+        HEIGHT:150PX;*/
+        height:0px;
+        
+    }
+    
+    &#advanced-search {
+        /*background-image:url(images/doodles.png);
+        background-repeat: repeat;
+        background-color:$lighterBlue;
+        background-size:auto;
+        height:145px;*/
+        height:0px;
+    }
+    
+    &#single-property {
+        background-image:url(images/landing_5.jpg);
+        background-position: bottom center;
+        
+        @media screen and (min-width:768px) {
+                display:none;
+        };
+        
+    }
+    &#single-property_2 {
+        background-image:url(images/landing_5.jpg);
+        background-position: bottom center;
+        @media screen and (min-width:768px) {
+                display:none;
+        };
+        
+    }
+    &#single-property_3 {
+        background-image:url(images/landing_6.jpg);
+        background-position: bottom center;
+        @media screen and (min-width:768px) {
+                display:none;
+        };
+        
+    }
+    
+    &#single-property_4 {
+        background-image:url(images/landing_7.jpg);
+        background-position: bottom center;
+        @media screen and (min-width:768px) {
+                display:none;
+        };
+        
+    }
+    
+    &#single-property_5 {
+        background-image:url(images/landing_8.jpg);
+        background-position: bottom center;
+        @media screen and (min-width:768px) {
+                display:none;
+        };
+        
+    }
+    &#single-property_6 {
+        background-image:url(images/landing_9.jpg);
+        background-position: bottom center;
+        @media screen and (min-width:768px) {
+                display:none;
+        };
+        
+    }
+    &#template {/*
+        background-image:url(images/doodles.png);
+        background-repeat: repeat;
+        background-color:$lighterBlue;
+        background-size:auto;
+        */
+        height:0px;
+    }
+    &#single-tenant {
+        background-image:url(images/doodles.png);
+        background-repeat: repeat;
+        background-color:$lighterBlue;
+        background-size:auto;
+    }
+ 
+}
