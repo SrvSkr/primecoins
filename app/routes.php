@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/check_users', function()
+ Route::get('/check_users', function()
 {
 		$users= User::all();
 		echo '<pre>';
